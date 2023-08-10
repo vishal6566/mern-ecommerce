@@ -23,7 +23,7 @@ exports.getAllProducts=async(req,res)=>{
 exports.updateProduct=async(req,res,next)=>{
     let product=await Product.findById(req.params.id);
     if(!product){
-        res.status(500).json({
+       return res.status(500).json({
             success:false,
             message:"Product not found."
         })
@@ -39,3 +39,23 @@ exports.updateProduct=async(req,res,next)=>{
         product
     })
 }
+
+//Delete Product --Admin
+
+ exports.deleteProduct=async(req,res,next)=>{
+  const product=await Product.findByIdAndDelete(req.params.id)
+console.log(product)
+  if(!product){
+    return res.status(500).json({
+        success:false,
+        message:"Product not found."
+    })
+}
+
+
+
+await res.status(200).json({
+success:true,
+message:"Product deleted successfully."
+ })
+ }
