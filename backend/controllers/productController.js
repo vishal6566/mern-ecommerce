@@ -13,7 +13,7 @@ exports.createProduct =catchAsyncHandler(async (req, res, next) => {
 
 //get all product
 exports.getAllProducts =catchAsyncHandler(( async (req, res,next) => {
-    const apiFeature=new ApiFeatures(Product.find(),req.query).serach()
+    const apiFeature=new ApiFeatures(Product.find(),req.query).serach().filter()
     const products = await apiFeature.query
     res.status(200).json({
         Success: true,
