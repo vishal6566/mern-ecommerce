@@ -46,3 +46,19 @@ exports.loginUser=catchAsyncHandler(async(req,res,next)=>{
   sendToken(user,200,res)
 
 })
+
+
+//logout user
+
+exports.logout=catchAsyncHandler(async(req,res,next)=>{
+
+  res.cookie("token",null,{
+    httpOnly:true,
+    expires:new Date(Date.now())
+  })
+
+  res.status(200).json({
+    success:true,
+    message:"Logged Out Successfully"
+  })
+})
