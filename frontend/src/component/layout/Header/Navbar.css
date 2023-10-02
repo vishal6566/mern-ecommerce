@@ -1,0 +1,49 @@
+.nav-container {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+ 
+  justify-content: space-around;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: white;
+}
+
+.img-container {
+  width: 20%;
+
+}
+.img-container > img {
+
+  width: 150px;
+  height: 50px;
+
+}
+.nav-options-container {
+
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-options-container >p:hover{
+    cursor: pointer;
+    color: teal;
+}
+.icon-container {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon-container>button{
+    background: transparent;
+    border: none;
+}
+.icon-container>button:hover{
+    cursor: pointer;
+    color: teal;
+}
