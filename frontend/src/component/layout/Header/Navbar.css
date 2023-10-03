@@ -6,7 +6,7 @@
   display: flex;
  
   justify-content: space-around;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   position: sticky;
   top: 0;
   left: 0;
@@ -28,6 +28,7 @@
   width: 40%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .nav-options-container >p:hover{
     cursor: pointer;
