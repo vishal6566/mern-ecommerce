@@ -14,9 +14,10 @@ exports.createProduct = catchAsyncHandler(async (req, res, next) => {
 });
 
 //get all product
-exports.getAllProducts = catchAsyncHandler(async (req, res) => {
-  const resultPerPage = 5;
-  const productCount = await Product.countDocuments();
+exports.getAllProducts = catchAsyncHandler(async (req, res,next) => {
+ 
+  const resultPerPage = 8;
+  const productsCount = await Product.countDocuments();
   const apiFeature = new ApiFeatures(Product.find(), req.query)
     .serach()
     .filter()
@@ -24,8 +25,8 @@ exports.getAllProducts = catchAsyncHandler(async (req, res) => {
   const products = await apiFeature.query;
   res.status(200).json({
     Success: true,
-    Products: products,
-    productCount,
+     products,
+    productsCount,
   });
 });
 //update product  --admin
