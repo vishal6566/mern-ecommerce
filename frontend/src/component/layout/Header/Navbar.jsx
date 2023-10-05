@@ -4,6 +4,7 @@ import { ImSearch } from "react-icons/im";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import {BsFillPersonFill} from "react-icons/bs";
 import "./Navbar.css"
+import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="nav-container">
@@ -12,13 +13,13 @@ const Navbar = () => {
       </div>
       <div className="nav-options-container">
         <p>Home</p>
-        <p>Products</p>
+     <Link to="/products" className="Link"><p>Products</p></Link>   
         <p>Contact</p>
         <p>About</p>
       </div>
       <div className="icon-container">
         <button><BsFillPersonFill size={25} /></button>
-        <button><ImSearch  size={25} /></button>
+      <Link to="/search" className="Link"> <button><ImSearch  size={25} /></button></Link> 
         <button><AiOutlineShoppingCart size={25} /></button>
       </div>
     </div>

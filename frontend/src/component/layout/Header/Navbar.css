@@ -30,8 +30,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+ 
 }
-.nav-options-container >p:hover{
+.Link{
+  text-decoration: none;
+  color:black;
+  background-color: transparent;
+}
+.Link:hover{
     cursor: pointer;
     color: teal;
 }
