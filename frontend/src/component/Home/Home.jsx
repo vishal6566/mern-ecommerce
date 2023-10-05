@@ -17,7 +17,7 @@ const Home = () => {
       return alert.error(error)
     }
     dispatch(getProduct())
-  },[dispatch,error])
+  },[dispatch,error,alert])
 
   
   return (
@@ -33,14 +33,16 @@ const Home = () => {
           </button>
         </a>
       </div>
-      <h2 className="homeHeading">Featured Product</h2>
-      <div className="container" id="container">
+    <div id="container">
+    <h2 className="homeHeading">Featured Product</h2>
+      <div className="container" >
        {products && products.map((product) =>(
-         <Product product={product} />
+         <Product product={product} key={product._id} />
        ))}
        
         
       </div>
+    </div>
     </Fragment>}
     </Fragment>
   );

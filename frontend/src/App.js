@@ -6,7 +6,7 @@ import WebFont from "webfontloader";
 import Footer from "./component/layout/Footer/Footer";
 import Navbar from "./component/layout/Header/Navbar";
 import Home from "./component/Home/Home.jsx";
-
+import ProductDetails from "./component/Product/ProductDetails.jsx";
 function App() {
   useEffect(() => {
     WebFont.load({
@@ -20,6 +20,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route extact path="/" element={<Home />}/>
+        <Route extact path="/product/:id" element={<ProductDetails />}/>
       </Routes>
       <Footer />
     </div>
