@@ -56,7 +56,7 @@ const ProductDetails = () => {
             <p>Product # {product._id}</p>
           </div>
           <div className="detailsBlock-2">
-            <ReactStars {...options} />
+            <ReactStars {...options} key={product.ratings} />
             <span className="detailsBlock-2-span">
               {" "}
               ({product.numOfReviews} Reviews)

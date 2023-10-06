@@ -27,6 +27,7 @@ exports.getAllProducts = catchAsyncHandler(async (req, res,next) => {
     Success: true,
      products,
     productsCount,
+    resultPerPage
   });
 });
 //update product  --admin
