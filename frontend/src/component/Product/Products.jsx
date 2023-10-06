@@ -8,10 +8,28 @@ import { useParams } from "react-router-dom";
 import Pagination from "react-js-pagination";
 import Slider from "@material-ui/core/Slider";
 import Typography from "@material-ui/core/Typography";
+import {useAlert} from "react-alert";
+import MetaData from "../layout/MetaData";
+
+const categories = [
+    "Laptop",
+    "Footwear",
+    "Bottom",
+    "Tops",
+    "Attire",
+    "Camera",
+    "SmartPhones",
+  ];
+
+
 const Products = () => {
   const dispatch = useDispatch();
+
+  const alert=useAlert()
   const [currentPage, setCurrentPage] = useState(1);
-  const [price,setPrice]=useState([0,150000])
+  const [price, setPrice] = useState([0, 150000]);
+  const [category, setCategory] = useState("");
+  const [ratings, setRatings] = useState(0)
   const { loading, error, products, productsCount, resultPerPage } =
     useSelector((state) => state.products);
   const { keyword } = useParams();
@@ -19,13 +37,17 @@ const Products = () => {
   const setCurrentPageNo = (e) => {
     setCurrentPage(e);
   };
-  const priceHandler=(e,newPrice)=>{
- setPrice(newPrice)
-  }
+  const priceHandler = (e, newPrice) => {
+    setPrice(newPrice);
+  };
 
   useEffect(() => {
-    dispatch(getProduct(keyword, currentPage,price));
-  }, [dispatch, keyword, currentPage,price]);
+    if(error){
+        alert.error(error)
+        dispatch(clearErrors())
+    }
+    dispatch(getProduct(keyword, currentPage, price,category,ratings));
+  }, [dispatch, keyword, currentPage, price,category,ratings,alert,error]);
 
   return (
     <Fragment>
@@ -33,6 +55,7 @@ const Products = () => {
         <Loader />
       ) : (
         <Fragment>
+             <MetaData title="PRODUCTS --ECOMMERCE" />
           <h2 className="productsHeading">Products</h2>
           <div className="products">
             {products &&
@@ -51,6 +74,29 @@ const Products = () => {
               min={0}
               max={150000}
             />
+            <Typography>Categories</Typography>
+            <ul className="categoryBox">
+              {categories.map((category) => (
+                <li className="category-link" key={category} onClick={()=>setCategory(category)}>
+                  {category}
+                </li>
+              ))}
+            </ul>
+            <fieldset>
+                <Typography component="legend">
+                        Rating Above
+                </Typography>
+                <Slider
+                value={ratings}
+                onChange={(e, newRating) => {
+                  setRatings(newRating);
+                }}
+                aria-labelledby="continuous-slider"
+                valueLabelDisplay="auto"
+                min={0}
+                max={5}
+              />
+            </fieldset>
           </div>
 
           {resultPerPage < productsCount && (

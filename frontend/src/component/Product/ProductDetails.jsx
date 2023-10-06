@@ -8,6 +8,7 @@ import ReactStars from "react-rating-stars-component";
 import ReviewCard from "./ReviewCard.jsx"
 import Loader from "../layout/Loader/Loader";
 import {useAlert} from "react-alert"
+import MetaData from "../layout/MetaData";
 const ProductDetails = () => {
   const dispatch = useDispatch();
   const alert=useAlert();
@@ -36,6 +37,7 @@ const ProductDetails = () => {
     <Fragment>
       {loading ? (<Loader />) :
       (<Fragment>
+        <MetaData title={`${product.name} --ECOMMERCE`}/>
       <div className="ProductDetails">
         <div >
           <Carousel className="CarouselImage" >
