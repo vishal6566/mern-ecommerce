@@ -19,6 +19,8 @@ const Navbar = () => {
       </div>
       <div className="icon-container">
         <button><BsFillPersonFill size={25} /></button>
+        {/* remove later */}
+        <button><BsFillPersonFill size={25} /></button>
       <Link to="/search" className="Link"> <button><ImSearch  size={25} /></button></Link> 
         <button><AiOutlineShoppingCart size={25} /></button>
       </div>
